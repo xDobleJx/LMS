@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    
+    <xs:complexType name="direcciones">
+        <xs:sequence>
+            <xs:element name="calle"  type="xs:string"/>
+            <xs:element name="numero"  type="xs:integer"/>
+            <xs:element name="ciudad"  type="xs:string"/>
+            <xs:element name="provincia"  type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+   
+    <xs:element name="alumnos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="alumno" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>                            
+                            <xs:element name="nombre"  type="xs:string"/>
+                            <xs:element name="direccion" type="direcciones"/>
+                            <xs:choice>
+                                <xs:element name="telefono" type="xs:integer"/>
+                                <xs:element name="movil" type="xs:integer" maxOccurs="3"/>
+                            </xs:choice>                     
+                            <xs:element name="email" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="dni"  type="xs:string" use="required"/>
+                        <xs:attribute name="repetidor" type="xs:boolean" default="false"/>
+                        <xs:attribute name="fechNacimiento" type="xs:date" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>  
+    
+
+</xs:schema>

@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    
+    <xs:complexType name="direcciones">
+        <xs:sequence>
+            <xs:element name="numero">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minExclusive value="1"/>
+                        <xs:maxExclusive value="1000"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="verificado" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+   
+    <xs:complexType name="dni">
+        <xs:attribute name="dni" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]"/>
+                </xs:restriction>
+            </xs:simpleType> 
+        </xs:attribute>
+    </xs:complexType>  
+      
+    <xs:complexType name="telefonos">
+        <xs:choice>
+            <xs:element name="telefono">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:totalDigits value="9"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="movil">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:totalDigits value="9"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="calles">
+        <xs:sequence>
+            <xs:element name="calle">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="tipo" type="xs:string"/>
+    </xs:complexType>            
+
+    <xs:complexType name="localizacion">
+        <xs:sequence>
+            <xs:element name="ciudad">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="provincia">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+        <!-- UNIR EL ATRIBUTO A CIUDAD -->
+        <xs:attribute name="codigoPostal" type="xs:integer"/>
+    </xs:complexType>
+    
+    
+    
+    <xs:element name="alumnos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="alumno" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>  
+                            <xs:element name="dni" type="dni"/>                          
+                            <xs:element name="nombre"  type="xs:string"/>
+                            <xs:element name="direccion" type="direcciones"/>
+                            <xs:element name="calle" type="calles"/>
+                            <xs:element name="localizacion" type="localizacion"/> 
+                            <xs:element name="telefono" type="telefonos"/>
+                            <xs:element name="email" type="xs:string"/>
+                        </xs:sequence>
+                        
+                        
+
+                        <xs:attribute name="repetidor" type="xs:boolean" default="false"/>
+                        <xs:attribute name="fechNacimiento" type="xs:date" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<alumnos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="8.EjercicioXSD.xsd">
+    <alumno fechNacimiento="2022-12-17">
+        <dni dni="11111111F"></dni>
+        <nombre>Iraide Etxeberria</nombre>
+        <direccion>
+            <numero>5</numero>
+        </direccion>
+        <calle>
+            <calle>Kalenagusia</calle> 
+        </calle>
+        
+        <localizacion>
+            <ciudad>Bilbao</ciudad>
+            <provincia>Bizkaia</provincia>
+        </localizacion>
+        <telefono>
+            <telefono>944000000</telefono>
+        </telefono> 
+        <email></email>
+    </alumno>
+    <alumno fechNacimiento="2022-12-17">
+        <dni dni="22222222Q"></dni>
+        <nombre>Joseba Mikel Zarraga</nombre>
+        <direccion>
+            <numero>75</numero>
+        </direccion>
+        <calle>
+            <calle>Gorbeia</calle>
+        </calle>
+        
+        <localizacion>
+            <ciudad>Artea</ciudad>
+            <provincia>Bizkaia</provincia>
+        </localizacion>
+        <telefono>
+            <telefono>944999999</telefono>   
+        </telefono>
+        <email></email>
+    </alumno>
+</alumnos>
